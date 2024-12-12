@@ -1,28 +1,25 @@
 self.addEventListener('install', function(event) {
-  console.log('Service Worker installing.');
 });
 
 self.addEventListener('activate', function(event) {
-  console.log('Service Worker activating.');
 });
 
 importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js');
 importScripts('https://www.gstatic.com/firebasejs/9.0.0/firebase-messaging-compat.js');
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID
+  apiKey: "AIzaSyBbG_PGTHFdZXVlRDJWBWp5P6r1SaLGgrE",
+  authDomain: "readhub-f25b0.firebaseapp.com",
+  projectId: "readhub-f25b0",
+  storageBucket: "readhub-f25b0.appspot.com",
+  messagingSenderId: "585734991024",
+  appId: "1:585734991024:web:8d0ea1613ba55e323d0055"
 };
 
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage(function(payload) {
-  console.log('Received background message:', payload);
 
   const notificationOptions = {
     body: payload.notification.body,
